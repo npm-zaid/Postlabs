@@ -136,33 +136,36 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden">
-  
 
       <div className="bg-[#F8F8F2] relative z-40">
-    {/* Background grid lines */}
-      <div className="absolute inset-0 grid grid-cols-[1fr_1.5fr_1.5fr_1fr] grid-rows-1 border-black/20">
+    
+      <div className="absolute inset-0 grid md:grid-cols-[1fr_1.5fr_1.5fr_1fr] grid-cols-[1fr_3fr_3fr_1fr]  grid-rows-1 border-black/20">
         <div className="border-r border-black/20"></div>
         <div className="border-r border-black/20"></div>
         <div className="border-r border-black/20"></div>
       </div>
         <Hero />
-
-        {/* Mission Section Wrapper */}
-      <Mission/>
+        <Features/>
+       
+        <div ref={missionRef}>
+          <Mission />
+        </div>
 
         <Expand />
         <Info />
         <ScrollVideos />
 
-        {/* Capital Section Wrapper */}
+       
         <div ref={capitalRef}>
           <Capital />
         </div>
       </div>
 
+    
+
       <Footer />
 
-      {/* Floating Buttons */}
+     
       <FloatingButtons ref={buttonsRef} />
     </div>
   );

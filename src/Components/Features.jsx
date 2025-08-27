@@ -5,10 +5,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
-  const containerRef = useRef(null);
-  const slotRefs = useRef([]);
-  const cardsRef = useRef([]);
-  const tweensRef = useRef([]);
+  // ✅ Scoped refs
+  const featuresContainerRef = useRef(null);
+  const featuresSlotRefs = useRef([]);
+  const featuresCardsRef = useRef([]);
+  const featuresTweensRef = useRef([]);
   const [isMobile, setIsMobile] = useState(false);
 
   const cards = [
@@ -28,14 +29,20 @@ const Features = () => {
   useEffect(() => {
     if (isMobile) return; // ❌ Skip GSAP on mobile
 
-    const container = containerRef.current;
-    const slots = slotRefs.current;
-    const cardEls = cardsRef.current;
+    const container = featuresContainerRef.current;
+    const slots = featuresSlotRefs.current;
+    const cardEls = featuresCardsRef.current;
 
     function killTweens() {
-      tweensRef.current.forEach((t) => t && t.kill && t.kill());
-      tweensRef.current = [];
-      ScrollTrigger.getAll().forEach((st) => st.kill());
+      featuresTweensRef.current.forEach((t) => t && t.kill && t.kill());
+      featuresTweensRef.current = [];
+
+      // ✅ Kill only this component's triggers
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.vars.id && st.vars.id.startsWith("features-")) {
+          st.kill();
+        }
+      });
     }
 
     function createAnimations() {
@@ -76,6 +83,7 @@ const Features = () => {
           rotate: 0,
           ease: "power3.out",
           scrollTrigger: {
+            id: `features-card-${i}`, // ✅ unique ID
             trigger: container,
             start: "top 80%",
             end: "bottom 20%",
@@ -83,7 +91,7 @@ const Features = () => {
           },
         });
 
-        tweensRef.current.push(t);
+        featuresTweensRef.current.push(t);
       });
 
       ScrollTrigger.refresh();
@@ -104,7 +112,7 @@ const Features = () => {
 
   return (
     <div className="py-28">
-      <div ref={containerRef} className="max-w-6xl mx-auto px-6 relative">
+      <div ref={featuresContainerRef} className="max-w-6xl mx-auto px-6 relative">
         {isMobile ? (
           // ✅ Mobile Carousel
           <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
@@ -130,15 +138,15 @@ const Features = () => {
           // ✅ Desktop GSAP Slots
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div ref={(el) => (slotRefs.current[0] = el)} className="h-[60vh]" />
-              <div ref={(el) => (slotRefs.current[1] = el)} className="h-[60vh]" />
-              <div ref={(el) => (slotRefs.current[2] = el)} className="h-[60vh]" />
+              <div ref={(el) => (featuresSlotRefs.current[0] = el)} className="h-[60vh]" />
+              <div ref={(el) => (featuresSlotRefs.current[1] = el)} className="h-[60vh]" />
+              <div ref={(el) => (featuresSlotRefs.current[2] = el)} className="h-[60vh]" />
             </div>
 
             {cards.map((card, index) => (
               <div
                 key={index}
-                ref={(el) => (cardsRef.current[index] = el)}
+                ref={(el) => (featuresCardsRef.current[index] = el)}
                 className="bg-black rounded-4xl p-8 flex flex-col justify-between shadow-lg"
                 style={{ pointerEvents: "none" }}
               >

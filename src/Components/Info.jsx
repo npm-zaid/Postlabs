@@ -43,22 +43,22 @@ const Info = () => {
     ));
 
   return (
-    <div className="min-h-screen relative ">
+    <div className=" ">
       {/* Section 1 */}
-      <div className="h-screen p-10">
-        <p className="text-[11vw] leading-[13vw] anim-text whitespace-normal max-w-3xl">
+      <div className="md:h-screen h-[50vh]  p-10">
+        <p className="md:text-[11vw] text-[14vw] sm:leading-[13vw] leading-[15vw]  anim-text whitespace-normal max-w-3xl">
           {wrapText("What We’re Building")}
         </p>
       </div>
 
       {/* Section 2 */}
-      <div className="h-screen relative">
+      <div className="md:h-screen h-[50vh] relative">
         <img
-          className="w-[12vw] absolute top-[35vh] left-[13vw]"
+          className="sm:w-[12vw] w-[35vw] absolute sm:top-[35vh] top-[10vh] sm:left-[13vw] -left-10"
           src="https://cdn.prod.website-files.com/681dfdff4444ca819f7050a2/68266ea52e91d548861b8d20_icon-1-transparent.svg"
           alt=""
         />
-        <p className="absolute top-[40vh] left-[20vw] w-[50vw] text-[3vw] leading-[4vw] anim-text whitespace-normal">
+        <p className="absolute sm:top-[50vh] top-1/2 transform  -translate-y-1/2   left-[20vw] sm:w-[50vw] md:text-[2.8vw] text-[7vw] md:leading-[3.5vw] leading-[8vw] anim-text whitespace-normal">
           {wrapText(
             "Post Labs is building a homegrown platform designed for Canadians and the future of Canadian media."
           )}
@@ -66,27 +66,27 @@ const Info = () => {
       </div>
 
       {/* Section 3 */}
-      <div className="h-screen relative">
+      <div className="md:h-screen h-[50vh]  relative">
         <img
-          className="w-[12vw] page2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="sm:w-[12vw] w-[35vw] page2 absolute top-1/2 sm:left-1/2 -left-10  sm:-translate-x-1/2 -translate-y-1/2"
           src="https://cdn.prod.website-files.com/681dfdff4444ca819f7050a2/68266ea52e91d548861b8d20_icon-1-transparent.svg"
           alt=""
         />
-        <p className="absolute top-[40vh] right-[0vw] w-[50vw] text-[2.8vw] leading-[3.5vw] anim-text whitespace-normal">
+        <p className="absolute sm:w-[45vw] w-full  top-1/2 transform  -translate-y-1/2 -translate-x-1/2 left-[65vw]  sm:left-[75%]   md:text-[2.8vw] text-[7vw] md:leading-[3.5vw] leading-[8vw]  anim-text whitespace-normal">
           {wrapText(
-            "Greetings! I'm an enthusiastic Full Stack Developer who thrives on crafting vibrant and interactive web applications."
+            "At its core is PostOS, our made-in-Canada publishing engine that connects local voices, communities, and trusted journalism in one seamless digital experience."
           )}
         </p>
       </div>
 
       {/* Section 4 */}
-      <div className="h-screen relative">
+      <div className="md:h-screen h-[50vh] relative">
         <img
-          className="w-[12vw] absolute top-[35vh] left-[13vw]"
+          className="sm:w-[12vw] w-[35vw] absolute sm:top-[35vh] top-[10vh] sm:left-[13vw] -left-10"
           src="https://cdn.prod.website-files.com/681dfdff4444ca819f7050a2/68267087adfa3ad7422b8753_icon-3-transparent.svg"
           alt=""
         />
-        <p className="absolute top-[40vh] left-[20vw] w-[50vw] text-[3vw] leading-[4vw] anim-text whitespace-normal">
+        <p className="absolute sm:top-[50vh] top-1/2 transform  -translate-y-1/2   left-[20vw] sm:w-[50vw] md:text-[2.8vw] text-[7vw] md:leading-[3.5vw] leading-[8vw] anim-text whitespace-normal">
           {wrapText(
             "Built by Canadians, for Canadians, PostOS is more than just technology — it’s a way to bring our stories home."
           )}

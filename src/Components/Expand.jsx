@@ -23,14 +23,14 @@ export default function Expand() {
           start: "top 80%",
           end: "bottom center",
           scrub: true,
-          markers: true,
+         
         },
       }
     );
   }, []);
 
   return (
-    <section className="h-[200vh] flex items-center justify-center">
+    <section className="sm:h-[200vh] h-[150vh] flex items-center justify-center">
       <div className="relative w-full flex justify-center overflow-hidden">
         <video
           ref={videoRef}

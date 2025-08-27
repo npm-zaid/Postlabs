@@ -33,9 +33,9 @@ const App = () => {
   }, []);
 
   return (
-    <div className='bg-[#F8F8F2] '>
+  
     <Home />
-   </div>
+ 
   )
 }
 

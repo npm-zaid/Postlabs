@@ -45,8 +45,8 @@ const Capital = () => {
   return (
     <div className="relative min-h-screen ">
       {/* Investors Section */}
-      <div className="w-[50vw] px-12 h-screen flex flex-col justify-center gap-6">
-        <h1 className="text-[9vw] leading-[9vw] anim-text">
+      <div className="h-screen  md:w-[50vw] w-full md:px-8 px-6 flex flex-col justify-center gap-6">
+        <h1 className="md:text-[9vw] text-[15vw] md:leading-[9vw] leading-[15vw] anim-text">
           {wrapText("For Investors")}
         </h1>
         <p className="anim-text whitespace-normal">
@@ -60,9 +60,9 @@ const Capital = () => {
       </div>
 
       {/* Builders Section */}
-      <div className="h-screen px-6 bg-gradient-to-t from-[#FCED61] via-[#FCED61]/30 to-transparent">
-        <div className="w-[45vw] h-screen flex flex-col justify-center gap-6 ml-auto">
-          <h1 className="text-[9vw] leading-[9vw] anim-text">
+      <div className="h-screen  px-6 bg-gradient-to-t from-[#FCED61] via-[#FCED61]/30 to-transparent">
+        <div className="md:w-[45vw] w-full h-screen flex flex-col justify-center gap-6 ml-auto">
+          <h1 className="md:text-[9vw] text-[15vw] md:leading-[9vw] leading-[15vw] anim-text">
             {wrapText("For Builders")}
           </h1>
           <p className="anim-text whitespace-normal">
