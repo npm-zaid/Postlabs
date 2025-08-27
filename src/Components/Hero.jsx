@@ -49,7 +49,7 @@ const Hero = () => {
             alt=""
           />
         </div>
-       <Features/>
+      
       </div>
       
     </>
