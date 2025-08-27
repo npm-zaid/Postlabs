@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./assets/681e2aaae62de13d0a01fb25_InterTight-Regular.ttf");
+}
+
+body {
+  font-family: 'Inter';
+}
+
+
