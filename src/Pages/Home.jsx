@@ -139,12 +139,13 @@ const Home = () => {
 
       <div className="bg-[#F8F8F2] relative z-40">
     
-      <div className="absolute inset-0 grid md:grid-cols-[1fr_1.5fr_1.5fr_1fr] grid-cols-[1fr_3fr_3fr_1fr]  grid-rows-1 border-black/20">
-        <div className="border-r border-black/20"></div>
-        <div className="border-r border-black/20"></div>
-        <div className="border-r border-black/20"></div>
+      <div className="absolute inset-0 grid md:grid-cols-[1fr_1.5fr_1.5fr_1fr] grid-cols-[1fr_3fr_3fr_1fr]  grid-rows-1 border-black/10">
+        <div className="border-r border-black/10"></div>
+        <div className="border-r border-black/10"></div>
+        <div className="border-r border-black/10"></div>
       </div>
         <Hero />
+        <Features/>
        
         <div ref={missionRef}>
           <Mission />
