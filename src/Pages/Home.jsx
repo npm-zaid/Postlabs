@@ -145,7 +145,6 @@ const Home = () => {
         <div className="border-r border-black/10"></div>
       </div>
         <Hero />
-        <Features/>
        
         <div ref={missionRef}>
           <Mission />

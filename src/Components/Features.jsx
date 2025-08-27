@@ -41,18 +41,9 @@ const Features = () => {
     const slots = slotRefs.current;
     const cardEls = cardsRef.current;
 
-    // ✅ Kill only local tweens & triggers
-    function killTweens() {
-      tweensRef.current.forEach((t) => {
-        if (t?.kill) t.kill();
-      });
-      tweensRef.current = [];
-    }
-
+ 
     function createAnimations() {
       if (!container) return;
-      killTweens();
-
       gsap.set(cardEls, {
         position: "absolute",
         left: "50%",
@@ -111,7 +102,6 @@ const Features = () => {
 
     return () => {
       window.removeEventListener("resize", onResize);
-      killTweens();
     };
   }, [isMobile]);
 
