@@ -148,9 +148,7 @@ const Home = () => {
         <Hero />
 
         {/* Mission Section Wrapper */}
-        <div ref={missionRef}>
-          <Mission />
-        </div>
+      <Mission/>
 
         <Expand />
         <Info />
