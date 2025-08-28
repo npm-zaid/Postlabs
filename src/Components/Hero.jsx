@@ -3,6 +3,7 @@ import Features from "./Features";
 import CursorFollower from "./CursorFollower";
 import gsap from "gsap";
 
+import Cards from "./Cards";
 
 const Hero = () => {
 
@@ -49,7 +50,7 @@ const Hero = () => {
             alt=""
           />
         </div>
-      <Features/>
+     <Cards/>
       </div>
       
     </>

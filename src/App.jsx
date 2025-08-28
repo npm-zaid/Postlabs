@@ -1,6 +1,9 @@
 import React, { useRef, useEffect } from 'react'
 import Home from './Pages/Home'
+import Mission from './Components/Mission'
+import Cards from './Components/Cards'
 import Lenis from '@studio-freight/lenis'
+import { div } from 'framer-motion/client'
 const App = () => {
     const lenisRef = useRef();
   useEffect(() => { 
@@ -34,8 +37,10 @@ const App = () => {
 
   return (
   
-    <Home />
+  <div>
+     <Home/>
  
+  </div>
   )
 }
 
