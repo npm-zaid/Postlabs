@@ -1,10 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect ,useState} from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { div } from 'framer-motion/client';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Cards = () => {
+
+    const [mobile,setIsMobile] = useState(false);
+    useEffect(()=>{
+      if(window.innerWidth<768){
+        setIsMobile(true);
+      }
+    },[])
 
       const cards = [
     {
@@ -50,7 +58,32 @@ const Cards = () => {
   }, []);
 
   return (
-    <div className='h-screen page flex justify-center items-center relative'>
+    mobile
+    ? <div className='h-[70vh] flex  justify-center items-center '>
+       <div className='overflow-x-scroll flex gap-6 justify-start items-center px-6'>
+        {cards.map((card, index) => (
+              <div
+                key={index}
+                className="card  h-[40vh]   bg-black rounded-4xl p-8 flex flex-col justify-between shadow-lg"
+                style={{ pointerEvents: "none" }}
+              >
+                <div className="flex gap-2 mb-6">
+                  <img
+                    src={card.icon}
+                    alt={`icon-${index}`}
+                    className="w-[10vw]"
+                  />
+                </div>
+                <h3 className="text-white text-2xl font-medium leading-snug">
+                  {card.title}
+                </h3>
+              </div>
+            ))}
+            </div>
+
+    </div>
+   
+    :  <div className='h-screen page flex justify-center items-center relative'>
 
        {cards.map((card, index) => (
               <div
