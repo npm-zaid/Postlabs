@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import video2 from '../assets/Post Labs Building the Future of Canadian Digital Media (2).mp4'
+import video3 from '../assets/Post Labs Building the Future of Canadian Digital Media (1).mp4'
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,11 +13,12 @@ export default function MaskedScrollVideoSVG() {
   const textsRef = useRef([]);
   const numberRef = useRef(null);
 
-  const texts = ["First Video", "Second Video", "Third Video"];
+  const texts = ["Scale", "Creators", "Canada"];
   const videos = [
+    video2,
+    video3,
     "https://cdn.prod.website-files.com/681dfdff4444ca819f7050a2%2F683a0051a4448581c2d2e587_post-labs-video-mobile-4-transcode.mp4",
-    "https://www.w3schools.com/html/movie.mp4",
-    "https://www.w3schools.com/html/mov_bbb.mp4",
+  
   ];
 
   useEffect(() => {
@@ -31,7 +35,7 @@ export default function MaskedScrollVideoSVG() {
         },
       });
 
-      // Move NUMBER from center to left (responsive)
+  
       tl.to(numberRef.current, {
         x: () => (window.innerWidth < 768 ? -30 : -50),
         color: "white",
@@ -39,14 +43,14 @@ export default function MaskedScrollVideoSVG() {
         ease: "power2.inOut",
       });
 
-      // Animate masks
+    
       masksRef.current.forEach((mask, i) => {
         if (!mask) return;
         const finalRadius = window.innerWidth < 768 ? 1200 : 1000;
         tl.to(mask, { attr: { r: finalRadius }, duration: 1, ease: "power2.inOut" }, i + 0.5);
       });
 
-      // Animate texts
+    
       textsRef.current.forEach((text, i) => {
         if (!text) return;
         tl.fromTo(text, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5 }, i + 1).to(
@@ -62,7 +66,7 @@ export default function MaskedScrollVideoSVG() {
 
   return (
     <section ref={containerRef} className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-      {/* Videos with SVG masks */}
+     
       <svg
         width="100%"
         height="100%"
@@ -105,19 +109,19 @@ export default function MaskedScrollVideoSVG() {
         ))}
       </svg>
 
-      {/* NUMBER + Active Text */}
-      <div className="absolute inset-0 flex flex-col sm:flex-row items-center justify-center sm:justify-start px-6 sm:px-20 gap-4 sm:gap-0 pointer-events-none">
+     
+      <div className="absolute inset-0 flex flex-row items-center justify-center sm:justify-start px-6 sm:px-20 gap-4 sm:gap-0 pointer-events-none">
         <span
           ref={numberRef}
-          className="text-5xl sm:text-7xl  font-extrabold text-black  text-center sm:text-right opacity-90">
+          className="text-5xl sm:text-7xl text-nowrap  text-black  text-center sm:text-right opacity-90">
           Build For
         </span>
-        <div className="relative w-full sm:w-[40vw] min-w-[250px] ">
+        <div className="relative w-full sm:w-[40vw] ">
           {texts.map((txt, i) => (
             <div
               key={i}
               ref={(el) => (textsRef.current[i] = el)}
-              className="absolute top-1/2 left-0  w-full -translate-y-1/2 text-center sm:text-left text-5xl sm:text-7xl  font-bold text-white opacity-0"
+              className="absolute top-1/2 md:left-[18vw]  left-[8vw] -translate-x-1/2  w-full -translate-y-1/2 text-center sm:text-left text-5xl sm:text-7xl  text-white opacity-0"  
             >
               {txt}
             </div>

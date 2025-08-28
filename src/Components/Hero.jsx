@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-import Features from "./Features";
 import CursorFollower from "./CursorFollower";
 import gsap from "gsap";
-
 import Cards from "./Cards";
 
 const Hero = () => {

@@ -53,6 +53,7 @@ const Cards = () => {
         scrub: 1,
         start: 'top 50%',
         end: 'top 20%',
+       
       }
     });
   }, []);

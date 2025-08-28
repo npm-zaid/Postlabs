@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import video1 from '../assets/Post Labs Building the Future of Canadian Digital Media.mp4'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +22,7 @@ export default function Expand() {
         scrollTrigger: {
           trigger: el,
           start: "top 80%",
-          end: "bottom center",
+          end: "top 30%",
           scrub: true,
          
         },
@@ -34,7 +35,7 @@ export default function Expand() {
       <div className="relative w-full flex justify-center overflow-hidden">
         <video
           ref={videoRef}
-          src="https://www.w3schools.com/html/mov_bbb.mp4" // sample mp4 video
+          src={video1}
           autoPlay
           muted
           loop

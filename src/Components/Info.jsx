@@ -8,7 +8,7 @@ const Info = () => {
   useEffect(() => {
     gsap.utils.toArray(".anim-text").forEach((el) => {
       gsap.fromTo(
-        el.querySelectorAll("span span"), // target inner characters
+        el.querySelectorAll("span span"),
         {
           color: "white",
           y: 40,
@@ -22,8 +22,8 @@ const Info = () => {
           stagger: 0.008,
           scrollTrigger: {
             trigger: el,
-            start: "top 65%",
-            end: "top 10%",
+            start: "top 80%",
+            end: "top 40%",
             toggleActions: "play none none reverse",
           },
         }

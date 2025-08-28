@@ -1,12 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Hero from "../Components/Hero";
-import Features from "../Components/Features";
 import Mission from "../Components/Mission";
-import Video from "../Components/Video";
-import SectionScroll from "../Components/SectionScroll";
 import Expand from "../Components/Expand";
-import Test from "../Components/Test";
-import CursorFollower from "../Components/CursorFollower";
 import Capital from "../Components/Capital";
 import Footer from "../Components/Footer";
 import Info from "../Components/Info";

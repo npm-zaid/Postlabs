@@ -6,15 +6,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Mission = () => {
   useEffect(() => {
-    // Animate per-character spans only
     gsap.to(".mission-text span", {
-      color: "#000000",   // reveal to black
+      color: "#000000",   
       duration: 1,
-      stagger: 0.02,      // letter-by-letter
+      stagger: 0.02,      
       scrollTrigger: {
         trigger: ".mission-text",
-        start: "top 65%",
-        end: "top 10%",
+        start: "top 75%",
+        end: "top 20%",
         scrub: 2,
 
       },
@@ -31,7 +30,7 @@ const Mission = () => {
         {text.split("").map((char, i) => (
           <span
             key={i}
-            className="inline-block text-[#fafaf7]" // same as bg (invisible initially)
+            className="inline-block text-[#fafaf7]" 
           
           >
             {char === " " ? "\u00A0" : char}
