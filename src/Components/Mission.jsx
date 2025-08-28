@@ -20,15 +20,13 @@ const Mission = () => {
       },
     });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((st) => st.kill());
-    };
+  
   }, []);
 
   const text = `Post Labs is rethinking how digital media works for Canadians. Our mission is simple: make journalism profitable, sustainable, and trusted — built for Canadians, by Canadians.`;
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 relative z-40 bg-gray-200">
+    <section className="min-h-screen flex items-center justify-center px-6 relative z-40 ">
       <h2 className="mission-text text-[10vw] md:text-[4vw]   leading-tight max-w-xl text-center">
         {text.split("").map((char, i) => (
           <span
