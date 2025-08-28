@@ -39,13 +39,12 @@ const Footer = () => {
        
       </div>
       </div>
-
-      <div className='w-full h-[10vh]  flex flex-col md:flex-row md:justify-between items-center border-t border-zinc-200/40'>
+    </div>
+    <div className='p-4 border-t border-zinc-600 flex md:flex-row flex-col absolute bottom-0 left-0 w-full justify-between items-center'>
 
         <p>© 2025 Post Labs, Inc. All rights reserved.</p>
-        <p>Designed by HRVST.</p>
+        <p>Designed by ZAID</p>
       </div>
-    </div>
     </footer>
     
 
