@@ -8,25 +8,24 @@ const Features = () => {
   const containerRef = useRef(null);
   const slotRefs = useRef([]);
   const cardsRef = useRef([]);
-  const tweensRef = useRef([]);
   const [isMobile, setIsMobile] = useState(false);
 
   const cards = [
-    { 
-      title: "Empowering Creators.", 
-      icon: "https://cdn.prod.website-files.com/681dfdff4444ca819f7050a2/68239a34145625a862ba3d54_icon-1.svg" 
+    {
+      title: "Empowering Creators.",
+      icon: "https://cdn.prod.website-files.com/681dfdff4444ca819f7050a2/68239a34145625a862ba3d54_icon-1.svg"
     },
-    { 
-      title: "Transforming Publishing.", 
-      icon: "https://cdn.prod.website-files.com/681dfdff4444ca819f7050a2/68239b7ac5ddc2008b2da9b7_icon-2.svg" 
+    {
+      title: "Transforming Publishing.",
+      icon: "https://cdn.prod.website-files.com/681dfdff4444ca819f7050a2/68239b7ac5ddc2008b2da9b7_icon-2.svg"
     },
-    { 
-      title: "Reclaiming Canadian Media.", 
-      icon: "https://cdn.prod.website-files.com/681dfdff4444ca819f7050a2/68239b7ab5708009ef8f649e_icon-3.svg" 
-    },
+    {
+      title: "Reclaiming Canadian Media.",
+      icon: "https://cdn.prod.website-files.com/681dfdff4444ca819f7050a2/68239b7ab5708009ef8f649e_icon-3.svg"
+    }
   ];
 
-  // ✅ Detect mobile
+  // Detect mobile
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -34,16 +33,16 @@ const Features = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // GSAP Animations for Desktop
   useEffect(() => {
-    if (isMobile) return; // ❌ Skip GSAP on mobile
+    if (isMobile) return;
 
-    const container = containerRef.current;
-    const slots = slotRefs.current;
-    const cardEls = cardsRef.current;
+    const ctx = gsap.context(() => {
+      const container = containerRef.current;
+      const slots = slotRefs.current;
+      const cardEls = cardsRef.current;
 
- 
-    function createAnimations() {
-      if (!container) return;
+      // Initial positioning
       gsap.set(cardEls, {
         position: "absolute",
         left: "50%",
@@ -72,44 +71,31 @@ const Features = () => {
           height: `${slotRect.height}px`,
         });
 
-        const tween = gsap.to(cardEls[i], {
+        gsap.to(cardEls[i], {
           x: dx,
           rotate: 0,
           ease: "power3.out",
           scrollTrigger: {
-            id: `features-${i}`, // ✅ unique ID
             trigger: container,
             start: "top 80%",
             end: "bottom 20%",
             scrub: true,
           },
         });
-
-        // Save both tween & scrollTrigger
-        tweensRef.current.push(tween);
-        tweensRef.current.push(tween.scrollTrigger);
       });
 
       ScrollTrigger.refresh();
-    }
+    }, containerRef);
 
-    createAnimations();
-
-    const onResize = () => {
-      if (!isMobile) createAnimations();
-    };
-    window.addEventListener("resize", onResize);
-
-    return () => {
-      window.removeEventListener("resize", onResize);
-    };
+    // Cleanup all animations and ScrollTriggers when unmounting or switching view
+    return () => ctx.revert();
   }, [isMobile]);
 
   return (
     <div className="py-28">
       <div ref={containerRef} className="max-w-6xl mx-auto px-6 relative">
         {isMobile ? (
-          // ✅ Mobile Carousel
+          // Mobile Carousel
           <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
             {cards.map((card, index) => (
               <div
@@ -130,7 +116,7 @@ const Features = () => {
             ))}
           </div>
         ) : (
-          // ✅ Desktop GSAP Slots
+          // Desktop Slots + Animated Cards
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               <div ref={(el) => (slotRefs.current[0] = el)} className="h-[60vh]" />
